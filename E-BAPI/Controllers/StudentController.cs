@@ -31,7 +31,9 @@ namespace E_BAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Students>> GetStudents(int id)
         {
-            var students = await _context.Students.FindAsync(id);
+            var students = 
+            await _context.Students.FindAsync(id);
+            //students.StudentDep = _context.Department.Where(s => s.StudentDep.Any(c => c.DepId == id));
 
             if (students == null)
             {
